@@ -1,6 +1,6 @@
 import { Link } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
-import { colors, radius, spacing } from '../constants/theme';
+import { colors, radius, spacing } from '../../constants/theme';
 
 export default function HomeScreen() {
   return (
