@@ -2,8 +2,19 @@ import { Link } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, radius, spacing } from '../../constants/theme';
 import { API_BASE_URL } from '../../lib/config';
+import { useEffect, useState } from 'react';
+import { apiRequest } from '../../lib/api';
 
 export default function HomeScreen() {
+
+  const [apiStatus, setApiStatus] = useState('Checking API...');
+
+  useEffect(() => {
+    apiRequest<{ status: string }>('/health')
+      .then((data) => setApiStatus(`API status: ${data.status}`))
+      .catch(() => setApiStatus('API unavailable'));
+  }, []);
+
   return (
     <View style={styles.container}>
 
@@ -19,6 +30,8 @@ export default function HomeScreen() {
       <Text style={styles.description}>
         API: {API_BASE_URL}
       </Text>
+      <Text style={styles.description}>{apiStatus}</Text>
+
 
     </View>
   );
