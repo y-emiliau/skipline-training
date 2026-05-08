@@ -32,8 +32,11 @@ export default function HomeScreen() {
         API: {API_BASE_URL}
       </Text>
       <Text style={styles.description}>{apiStatus}</Text>
-
-
+      <Link href="/auth/login" asChild>
+        <Pressable style={styles.button}>
+          <Text style={styles.buttonText}>Login</Text>
+        </Pressable>
+      </Link>
     </View>
   );
 }
