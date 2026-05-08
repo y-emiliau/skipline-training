@@ -2,6 +2,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { Tabs } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
 import { colors } from '../constants/theme';
+import { AppHeader } from '../components/app-header';
 
 export default function RootLayout() {
     return (
@@ -9,10 +10,9 @@ export default function RootLayout() {
             <StatusBar style="auto" />
             <Tabs
                 screenOptions={{
-                    headerStyle: {
-                        backgroundColor: colors.background,
-                    },
-                    headerShadowVisible: false,
+                    header: ({ options }) => (
+                        <AppHeader title={String(options.title ?? '')} />
+                    ),
                     tabBarActiveTintColor: colors.primary,
                     tabBarInactiveTintColor: colors.muted,
                 }}
