@@ -1,6 +1,7 @@
 import { Link } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { colors, radius, spacing } from '../../constants/theme';
+import { API_BASE_URL } from '../../lib/config';
 
 export default function HomeScreen() {
   return (
@@ -14,6 +15,11 @@ export default function HomeScreen() {
           <Text style={styles.buttonText}>Open details</Text>
         </Pressable>
       </Link>
+      <Text></Text>
+      <Text style={styles.description}>
+        API: {API_BASE_URL}
+      </Text>
+
     </View>
   );
 }
