@@ -4,13 +4,14 @@ import { colors, radius, spacing } from '../../constants/theme';
 import { API_BASE_URL } from '../../lib/config';
 import { useEffect, useState } from 'react';
 import { apiRequest } from '../../lib/api';
+import { HealthResponse } from '../../lib/api-types';
 
 export default function HomeScreen() {
 
   const [apiStatus, setApiStatus] = useState('Checking API...');
 
   useEffect(() => {
-    apiRequest<{ status: string }>('/health')
+    apiRequest<HealthResponse>('/health')
       .then((data) => setApiStatus(`API status: ${data.status}`))
       .catch(() => setApiStatus('API unavailable'));
   }, []);
