@@ -1,5 +1,6 @@
 import { Link } from 'expo-router';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { colors, radius, spacing } from '../constants/theme';
 
 export default function HomeScreen() {
   return (
@@ -21,8 +22,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    padding: 24,
-    backgroundColor: '#FFFFFF',
+    padding: spacing.lg,
+    backgroundColor: colors.background,
   },
   title: {
     fontSize: 34,
@@ -31,18 +32,18 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 17,
-    marginBottom: 24,
+    marginBottom: spacing.lg,
     color: '#4B5563',
   },
   button: {
     alignSelf: 'flex-start',
-    backgroundColor: '#111827',
-    borderRadius: 8,
+    backgroundColor: colors.text,
+    borderRadius: radius.md,
     paddingHorizontal: 20,
     paddingVertical: 14,
   },
   buttonText: {
-    color: '#FFFFFF',
+    color: colors.background,
     fontWeight: '700',
   },
 });
